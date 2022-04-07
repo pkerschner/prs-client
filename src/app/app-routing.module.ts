@@ -7,6 +7,10 @@ import { UserCreateComponent } from './prs/user/user-create/user-create.componen
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
 import { UserListComponent } from './prs/user/user-list/user-list.component';
+import { VendorCreateComponent } from './prs/vendor/vendor-create/vendor-create.component';
+import { VendorDetailComponent } from './prs/vendor/vendor-detail/vendor-detail.component';
+import { VendorEditComponent } from './prs/vendor/vendor-edit/vendor-edit.component';
+import { VendorListComponent } from './prs/vendor/vendor-list/vendor-list.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -17,6 +21,11 @@ const routes: Routes = [
   { path: "user/detail/:id", component: UserDetailComponent },
   { path: "user/create", component: UserCreateComponent },
   { path: "user/edit/:id", component: UserEditComponent },
+
+  { path: "vendor/list", component: VendorListComponent },
+  { path: "vendor/detail/:id", component: VendorDetailComponent },
+  { path: "vendor/create", component: VendorCreateComponent },
+  { path: "vendor/edit/:id", component: VendorEditComponent },
 
   { path: "**", component: E404Component }
 ];

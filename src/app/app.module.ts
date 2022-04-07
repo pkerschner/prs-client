@@ -15,6 +15,11 @@ import { BoolDisplayPipe } from './bool-display.pipe';
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
 import { UserCreateComponent } from './prs/user/user-create/user-create.component';
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
+import { VendorSearchPipe } from './prs/vendor/vendor-search.pipe';
+import { VendorListComponent } from './prs/vendor/vendor-list/vendor-list.component';
+import { VendorDetailComponent } from './prs/vendor/vendor-detail/vendor-detail.component';
+import { VendorCreateComponent } from './prs/vendor/vendor-create/vendor-create.component';
+import { VendorEditComponent } from './prs/vendor/vendor-edit/vendor-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
     BoolDisplayPipe,
     UserDetailComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    VendorSearchPipe,
+    VendorListComponent,
+    VendorDetailComponent,
+    VendorCreateComponent,
+    VendorEditComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
