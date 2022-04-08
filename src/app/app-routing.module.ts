@@ -7,6 +7,12 @@ import { ProductCreateComponent } from './prs/product/product-create/product-cre
 import { ProductDetailComponent } from './prs/product/product-detail/product-detail.component';
 import { ProductEditComponent } from './prs/product/product-edit/product-edit.component';
 import { ProductListComponent } from './prs/product/product-list/product-list.component';
+import { RequestCreateComponent } from './prs/request/request-create/request-create.component';
+import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
+import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
+import { RequestListComponent } from './prs/request/request-list/request-list.component';
+import { RequestlineCreateComponent } from './prs/requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './prs/requestline/requestline-edit/requestline-edit.component';
 import { UserCreateComponent } from './prs/user/user-create/user-create.component';
 import { UserDetailComponent } from './prs/user/user-detail/user-detail.component';
 import { UserEditComponent } from './prs/user/user-edit/user-edit.component';
@@ -35,6 +41,14 @@ const routes: Routes = [
   { path: "product/detail/:id", component: ProductDetailComponent },
   { path: "product/create", component: ProductCreateComponent },
   { path: "product/edit/:id", component: ProductEditComponent },
+
+  { path: "request/list", component: RequestListComponent },
+  { path: "request/detail/:id", component: RequestDetailComponent },
+  { path: "request/create", component: RequestCreateComponent },
+  { path: "request/edit/:id", component: RequestEditComponent },
+
+  { path: "requestline/create", component: RequestlineCreateComponent },
+  { path: "requestline/edit/:id", component: RequestlineEditComponent },
 
   { path: "**", component: E404Component }
 ];

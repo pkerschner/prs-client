@@ -25,6 +25,13 @@ import { ProductListComponent } from './prs/product/product-list/product-list.co
 import { ProductDetailComponent } from './prs/product/product-detail/product-detail.component';
 import { ProductCreateComponent } from './prs/product/product-create/product-create.component';
 import { ProductEditComponent } from './prs/product/product-edit/product-edit.component';
+import { RequestListComponent } from './prs/request/request-list/request-list.component';
+import { RequestSearchPipe } from './prs/request/request-search.pipe';
+import { RequestDetailComponent } from './prs/request/request-detail/request-detail.component';
+import { RequestCreateComponent } from './prs/request/request-create/request-create.component';
+import { RequestEditComponent } from './prs/request/request-edit/request-edit.component';
+import { RequestlineCreateComponent } from './prs/requestline/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './prs/requestline/requestline-edit/requestline-edit.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +55,14 @@ import { ProductEditComponent } from './prs/product/product-edit/product-edit.co
     ProductListComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    RequestListComponent,
+    RequestSearchPipe,
+    RequestDetailComponent,
+    RequestCreateComponent,
+    RequestEditComponent,
+    RequestlineCreateComponent,
+    RequestlineEditComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
