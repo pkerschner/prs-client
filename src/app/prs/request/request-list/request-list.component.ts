@@ -9,7 +9,7 @@ import { RequestService } from '../request.service';
 })
 export class RequestListComponent implements OnInit {
 
-  requests: Request[] =[];
+  requests: Request[] = [];
   searchCriteria: string = "";
 
   constructor(

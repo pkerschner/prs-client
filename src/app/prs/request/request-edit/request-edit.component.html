@@ -33,8 +33,12 @@
             <td><input [(ngModel)]="request.total" type="number" disabled></td>
         </tr>
         <tr>
-            <th>User Id:</th>
-            <td><input [(ngModel)]="request.userId" type="number"></td>
+            <th>User:</th>
+            <td>
+                <select [(ngModel)]="request.userId">
+                    <option *ngFor="let u of users" value="{{ u.id }}">{{ u.username }}</option>
+                </select>
+            </td>
         </tr>
     </tbody>
 </table>

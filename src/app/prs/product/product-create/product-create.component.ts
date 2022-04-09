@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Vendor } from '../../vendor/vendor.class';
+import { VendorService } from '../../vendor/vendor.service';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
 
@@ -11,10 +13,12 @@ import { ProductService } from '../product.service';
 export class ProductCreateComponent implements OnInit {
 
   product: Product = new Product();
+  vendors: Vendor[] = [];
 
   constructor(
     private prodsvc: ProductService,
     private router: Router,
+    private vendsvc: VendorService
   ) { }
 
   save(): void {
@@ -30,6 +34,15 @@ export class ProductCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.vendsvc.list().subscribe({
+      next: (res) => {
+        console.debug("Vendors:", res);
+        this.vendors = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 
 }
