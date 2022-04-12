@@ -6,7 +6,7 @@
     <tbody>
         <tr>
             <th>Id:</th>
-            <td><input [(ngModel)]="request.id" type="number" disabled></td>
+            <td><input [ngModel]="request.id" type="number" disabled></td>
         </tr>
         <tr>
             <th>Description:</th>
@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th>Rejection Reason:</th>
-            <td><input [(ngModel)]="request.rejectionReason" type="text"></td>
+            <td><input [ngModel]="request.rejectionReason" type="text" disabled></td>
         </tr>
         <tr>
             <th>Delivery Mode:</th>
@@ -26,19 +26,15 @@
         </tr>
         <tr>
             <th>Status:</th>
-            <td><input [(ngModel)]="request.status" type="text"></td>
+            <td><input [ngModel]="request.status" type="text" disabled></td>
         </tr>
         <tr>
             <th>Total:</th>
-            <td><input [(ngModel)]="request.total" type="number" disabled></td>
+            <td><input [ngModel]="request.total | currency" type="number" disabled></td>
         </tr>
         <tr>
             <th>User:</th>
-            <td>
-                <select [(ngModel)]="request.userId">
-                    <option *ngFor="let u of users" value="{{ u.id }}">{{ u.username }}</option>
-                </select>
-            </td>
+            <td><input [ngModel]="request.user.username" type="text" disabled></td>
         </tr>
     </tbody>
 </table>

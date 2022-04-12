@@ -6,12 +6,14 @@
     <tbody>
         <tr>
             <th>Id:</th>
-            <td><input [(ngModel)]="requestline.id" type="number" disabled></td>
+            <td><input [ngModel]="requestline.id" type="number" disabled></td>
         </tr>
         <tr>
             <th>Product:</th>
             <td>
-                <select [(ngModel)]="requestline.product.name" type="text"></select>
+                <select [(ngModel)]="requestline.productId" type="text">
+                    <option *ngFor=""></option>>
+                </select>
             </td>
         </tr>
         <tr>

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SystemService } from '../../system.service';
-import { User } from '../../user/user.class';
-import { UserService } from '../../user/user.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -14,14 +11,11 @@ import { RequestService } from '../request.service';
 export class RequestEditComponent implements OnInit {
 
   request!: Request;
-  users: User[] = [];
 
   constructor(
     private reqsvc: RequestService,
-    private route: ActivatedRoute,
     private router: Router,
-    private usersvc: UserService,
-    private systsvc: SystemService
+    private route: ActivatedRoute
   ) { }
 
   save(): void {
@@ -37,15 +31,6 @@ export class RequestEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usersvc.list().subscribe({
-      next: (res) => {
-        console.debug("Users:", res);
-        this.users = res;
-      },
-      error: (err) => {
-        console.error(err)
-      }
-    });
     let id = +this.route.snapshot.params["id"];
     this.reqsvc.get(id).subscribe({
       next: (res) => {

@@ -10,7 +10,8 @@ import { RequestService } from '../request.service';
 })
 export class RequestReviewListComponent implements OnInit {
 
-  requests: Request[] = [];
+  requests!: Request[];
+  searchCriteria: string = "";
 
   constructor(
     private systsvc: SystemService,
@@ -35,7 +36,7 @@ export class RequestReviewListComponent implements OnInit {
       error: (err) => {
         console.error(err);
       }
-    })
+    });
   }
 
 }

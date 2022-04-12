@@ -56,7 +56,7 @@ const routes: Routes = [
   { path: "request/review", component: RequestReviewListComponent},
   { path: "request/review/:id", component: RequestReviewItemComponent},
 
-  { path: "requestline/create/:id", component: RequestlineCreateComponent },
+  { path: "requestline/create/:requestId", component: RequestlineCreateComponent },
   { path: "requestline/edit/:id", component: RequestlineEditComponent },
 
   { path: "**", component: E404Component }

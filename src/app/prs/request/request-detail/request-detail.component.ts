@@ -23,7 +23,6 @@ export class RequestDetailComponent implements OnInit {
     this.showVerifyButton = !this.showVerifyButton;
   }
   verifyRemove(): void {
-    this.showVerifyButton = false;
     this.reqsvc.remove(this.request.id).subscribe({
       next: (res) => {
         console.debug("Request is deleted.");

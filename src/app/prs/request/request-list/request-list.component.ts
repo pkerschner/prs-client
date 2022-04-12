@@ -9,16 +9,23 @@ import { RequestService } from '../request.service';
 })
 export class RequestListComponent implements OnInit {
 
-  requests: Request[] = [];
+  requests!: Request[];
   searchCriteria: string = "";
 
   constructor(
     private reqsvc: RequestService
   ) { }
 
+  addUsername(requests: Request[]) {
+    for(let r of requests) {
+      r.username = r.username;
+    }
+  }
+
   ngOnInit(): void {
     this.reqsvc.list().subscribe({
       next: (res) => {
+        this.addUsername(res);
         this.requests = res;
         console.debug("Requests", res);
       },

@@ -13,8 +13,10 @@ import { RequestService } from '../request.service';
 export class RequestLinesComponent implements OnInit {
 
   request!: Request;
+  showVerifyButton: boolean = false;
 
   constructor(
+
     private reqsvc: RequestService,
     private route: ActivatedRoute,
     private router: Router,
@@ -50,7 +52,11 @@ export class RequestLinesComponent implements OnInit {
     this.router.navigateByUrl(`/requestline/edit/${reqln.id}`);
   }
 
-  remove(reqln: Requestline): void {
+  remove(): void {
+    this.showVerifyButton = !this.showVerifyButton;
+  }
+
+  verifyRemove(reqln: Requestline): void {
     this.reqlnsvc.remove(reqln.id).subscribe({
       next: (res) => {
         console.debug("Requestline deleted.");

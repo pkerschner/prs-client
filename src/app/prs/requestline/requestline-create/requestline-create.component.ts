@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Requestline } from '../requestline.class';
 import { RequestlineService } from '../requestline.service';
 
@@ -14,7 +14,8 @@ export class RequestlineCreateComponent implements OnInit {
 
   constructor(
     private reqlnsvc: RequestlineService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   save(): void {
@@ -30,6 +31,7 @@ export class RequestlineCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.requestline.requestId = +this.route.snapshot.params["requestId"];
   }
 
 }
