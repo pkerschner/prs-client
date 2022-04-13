@@ -3,6 +3,10 @@ input, select {
     border-radius: 5px;
 }
 #pageTitle {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+#sectionTitle {
+    font-size: 1.4em;
     font-weight: bold;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from '../../system.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -13,19 +14,14 @@ export class RequestListComponent implements OnInit {
   searchCriteria: string = "";
 
   constructor(
-    private reqsvc: RequestService
+    private reqsvc: RequestService,
+    private systsvc: SystemService
   ) { }
-
-  addUsername(requests: Request[]) {
-    for(let r of requests) {
-      r.username = r.username;
-    }
-  }
 
   ngOnInit(): void {
     this.reqsvc.list().subscribe({
       next: (res) => {
-        this.addUsername(res);
+        this.systsvc.addUsername(res);
         this.requests = res;
         console.debug("Requests", res);
       },

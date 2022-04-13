@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../../product/product.class';
+import { ProductService } from '../../product/product.service';
 import { Requestline } from '../requestline.class';
 import { RequestlineService } from '../requestline.service';
 
@@ -11,9 +13,11 @@ import { RequestlineService } from '../requestline.service';
 export class RequestlineCreateComponent implements OnInit {
 
   requestline: Requestline = new Requestline();
+  products!: Product[];
 
   constructor(
     private reqlnsvc: RequestlineService,
+    private prodsvc: ProductService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -22,7 +26,7 @@ export class RequestlineCreateComponent implements OnInit {
     this.reqlnsvc.create(this.requestline).subscribe({
       next: (res) => {
         console.debug("Requestline added.");
-        this.router.navigateByUrl("/requestline/list");
+        this.router.navigateByUrl(`/request/lines/${this.requestline.requestId}`);
       },
       error: (err) => {
         console.error(err);
@@ -32,6 +36,15 @@ export class RequestlineCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestline.requestId = +this.route.snapshot.params["requestId"];
+    this.prodsvc.list().subscribe({
+      next: (res) => {
+        console.debug("Products:", res);
+        this.products = res;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 
 }

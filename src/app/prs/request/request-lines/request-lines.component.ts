@@ -57,6 +57,7 @@ export class RequestLinesComponent implements OnInit {
   }
 
   verifyRemove(reqln: Requestline): void {
+    this.showVerifyButton = false;
     this.reqlnsvc.remove(reqln.id).subscribe({
       next: (res) => {
         console.debug("Requestline deleted.");

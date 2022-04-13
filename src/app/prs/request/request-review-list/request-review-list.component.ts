@@ -18,18 +18,12 @@ export class RequestReviewListComponent implements OnInit {
     private reqsvc: RequestService
   ) { }
 
-  addUsername(requests: Request[]) {
-    for(let r of requests) {
-      r.username = r.username;
-    }
-  }
-
   ngOnInit(): void {
     this.systsvc.checkLogin();
     let userId = this.systsvc.getUserLoggedIn()!.id;
     this.reqsvc.reviews(userId).subscribe({
       next: (res) => {
-        this.addUsername(res);
+        this.systsvc.addUsername(res);
         console.debug(res);
         this.requests = res;
       },

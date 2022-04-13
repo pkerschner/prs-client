@@ -12,7 +12,7 @@
             <th>Product:</th>
             <td>
                 <select [(ngModel)]="requestline.productId" type="text">
-                    <option *ngFor=""></option>>
+                    <option *ngFor="let p of products" value="{{ p.id }}">{{ p.name }}</option>>
                 </select>
             </td>
         </tr>
