@@ -49,10 +49,7 @@
                 <td>{{ r.product.price * r.quantity | currency }}</td>
                 <td>
                     <button (click)="edit(r)" class="btn btn-primary">Edit</button> |
-                    <button (click)="remove()" class="btn btn-danger">Delete</button>
-                    <span *ngIf="showVerifyButton">
-                        | <button (click)="verifyRemove(r)" class="btn btn-danger">Verify Delete</button>
-                    </span>
+                    <button (click)="remove(r)" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         </tbody>

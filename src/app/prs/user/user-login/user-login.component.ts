@@ -12,6 +12,7 @@ export class UserLoginComponent implements OnInit {
 
   username: string = "";
   password: string = "";
+  message: string = "";
 
   constructor(
     private usersvc: UserService,
@@ -20,6 +21,7 @@ export class UserLoginComponent implements OnInit {
   ) { }
 
   submit(): void {
+    this.message = "";
     this.systsvc.user = null;
     this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
@@ -28,7 +30,11 @@ export class UserLoginComponent implements OnInit {
         this.router.navigateByUrl("/request/list");
       },
       error: (err) => {
+        if(err.status == 404) {
+          this.message = "Invalid Username/Password";
+        } else {
         console.error("Login unsuccessful.");
+        }
       }
     });
   }
